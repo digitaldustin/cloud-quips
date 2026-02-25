@@ -1,0 +1,7 @@
+project_id = "bbjiyqtbjcdacsopccfl"
+
+[functions.play-round]
+verify_jwt = false
+
+[functions.vote]
+verify_jwt = false
