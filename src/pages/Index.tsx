@@ -101,12 +101,13 @@ const Index = () => {
               AI models compete. You judge. Chaos ensues.
             </p>
           </div>
-          <span
-            className="text-xs text-muted-foreground hidden md:block"
+          <a
+            href="/history"
+            className="text-xs text-muted-foreground hover:text-primary transition-colors hidden md:block"
             style={{ fontFamily: "var(--font-mono)" }}
           >
-            v1.0 — elo-ranked
-          </span>
+            history →
+          </a>
         </div>
       </header>
 
