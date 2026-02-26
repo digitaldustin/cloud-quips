@@ -182,27 +182,36 @@ const History = () => {
                   </div>
 
                   {expandedId === round.id && (
-                    <div className="mt-3 pt-3 border-t border-border space-y-4">
+                    <div className="mt-3 pt-3 border-t border-border">
                       {loadingResponses === round.id ? (
-                        <div className="space-y-2">
-                          <Skeleton className="h-16 w-full" />
-                          <Skeleton className="h-16 w-full" />
+                        <div className="grid md:grid-cols-2 gap-4">
+                          <Skeleton className="h-32 w-full" />
+                          <Skeleton className="h-32 w-full" />
                         </div>
                       ) : responses[round.id]?.length ? (
-                        responses[round.id].map((resp, i) => (
-                          <div key={i} className="space-y-1">
-                            <span
-                              className="text-xs font-bold text-primary uppercase tracking-widest"
-                              style={{ fontFamily: "var(--font-mono)" }}
+                        <div className="grid md:grid-cols-2 gap-4">
+                          {responses[round.id].map((resp, i) => (
+                            <div
+                              key={i}
+                              className="relative bg-card border border-border rounded-lg p-4"
                             >
-                              {resp.model_name}
-                              {round.winner?.name === resp.model_name && " 🏆"}
-                            </span>
-                            <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-wrap">
-                              {resp.content}
-                            </p>
-                          </div>
-                        ))
+                              <div className="flex items-center justify-between mb-3">
+                                <span
+                                  className="text-xs font-bold text-primary uppercase tracking-widest"
+                                  style={{ fontFamily: "var(--font-mono)" }}
+                                >
+                                  {resp.model_name}
+                                </span>
+                                {round.winner?.name === resp.model_name && (
+                                  <span className="text-xs" title="Winner">🏆</span>
+                                )}
+                              </div>
+                              <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-wrap">
+                                {resp.content}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
                       ) : (
                         <p className="text-xs text-muted-foreground" style={{ fontFamily: "var(--font-mono)" }}>
                           No responses recorded.
