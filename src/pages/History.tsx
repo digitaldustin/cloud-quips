@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Trophy, Swords, ChevronDown } from "lucide-react";
+import { ThemeSelector } from "@/components/ThemeSelector";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -85,27 +86,30 @@ const History = () => {
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b border-border">
-        <div className="container max-w-5xl mx-auto px-4 py-6 flex items-center gap-4">
-          <Link
-            to="/"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ArrowLeft className="h-5 w-5" />
-          </Link>
-          <div>
-            <h1
-              className="text-3xl md:text-4xl tracking-tight text-primary"
-              style={{ fontFamily: "var(--font-display)" }}
+        <div className="container max-w-5xl mx-auto px-4 py-6 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <Link
+              to="/"
+              className="text-muted-foreground hover:text-foreground transition-colors"
             >
-              Round History
-            </h1>
-            <p
-              className="text-muted-foreground text-sm mt-1"
-              style={{ fontFamily: "var(--font-mono)" }}
-            >
-              past battles & their verdicts
-            </p>
+              <ArrowLeft className="h-5 w-5" />
+            </Link>
+            <div>
+              <h1
+                className="text-3xl md:text-4xl tracking-tight text-primary"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Round History
+              </h1>
+              <p
+                className="text-muted-foreground text-sm mt-1"
+                style={{ fontFamily: "var(--font-mono)" }}
+              >
+                past battles & their verdicts
+              </p>
+            </div>
           </div>
+          <ThemeSelector />
         </div>
       </header>
 

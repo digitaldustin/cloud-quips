@@ -1,0 +1,263 @@
+/* =============================================================
+   QuipSlop Theme Definitions
+   Each theme overrides the CSS custom properties from index.css
+   ============================================================= */
+
+/* Import additional Google Fonts for themed typography */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&family=Nunito:wght@400;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&family=Megrim&display=swap');
+
+/* ─── DARK (default — already defined in index.css, this is here for completeness) ─── */
+.theme-dark {
+  --background: 0 0% 4%;
+  --foreground: 40 10% 90%;
+  --card: 0 0% 7%;
+  --card-foreground: 40 10% 90%;
+  --popover: 0 0% 7%;
+  --popover-foreground: 40 10% 90%;
+  --primary: 18 70% 55%;
+  --primary-foreground: 0 0% 4%;
+  --secondary: 0 0% 12%;
+  --secondary-foreground: 40 10% 90%;
+  --muted: 0 0% 12%;
+  --muted-foreground: 0 0% 50%;
+  --accent: 18 70% 55%;
+  --accent-foreground: 0 0% 4%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 0 0% 14%;
+  --input: 0 0% 14%;
+  --ring: 18 70% 55%;
+  --radius: 0.5rem;
+
+  --font-display: 'DM Serif Display', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ─── LIGHT ─── */
+.theme-light {
+  --background: 0 0% 98%;
+  --foreground: 0 0% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 10%;
+  --primary: 243 75% 59%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 240 5% 92%;
+  --secondary-foreground: 0 0% 10%;
+  --muted: 240 5% 92%;
+  --muted-foreground: 0 0% 45%;
+  --accent: 243 75% 59%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 240 6% 85%;
+  --input: 240 6% 85%;
+  --ring: 243 75% 59%;
+  --radius: 0.75rem;
+
+  --font-display: 'DM Serif Display', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ─── RETRO ARCADE ─── */
+.theme-retro {
+  --background: 270 60% 4%;
+  --foreground: 60 100% 80%;
+  --card: 270 50% 8%;
+  --card-foreground: 60 100% 80%;
+  --popover: 270 50% 8%;
+  --popover-foreground: 60 100% 80%;
+  --primary: 330 100% 60%;
+  --primary-foreground: 270 60% 4%;
+  --secondary: 270 40% 15%;
+  --secondary-foreground: 60 100% 80%;
+  --muted: 270 40% 15%;
+  --muted-foreground: 270 20% 50%;
+  --accent: 180 100% 50%;
+  --accent-foreground: 270 60% 4%;
+  --destructive: 0 100% 55%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 270 50% 18%;
+  --input: 270 50% 18%;
+  --ring: 330 100% 60%;
+  --radius: 0px;
+
+  --font-display: 'Press Start 2P', cursive;
+  --font-mono: 'Press Start 2P', cursive;
+  --font-body: 'Press Start 2P', cursive;
+}
+
+/* Retro-specific: pixel borders, scanline overlay */
+.theme-retro * {
+  image-rendering: pixelated;
+}
+.theme-retro .border,
+.theme-retro [class*="border-"] {
+  border-style: solid;
+}
+
+/* ─── PIP-BOY ─── */
+.theme-pipboy {
+  --background: 142 60% 2%;
+  --foreground: 120 100% 65%;
+  --card: 140 50% 5%;
+  --card-foreground: 120 100% 65%;
+  --popover: 140 50% 5%;
+  --popover-foreground: 120 100% 65%;
+  --primary: 120 100% 45%;
+  --primary-foreground: 142 60% 2%;
+  --secondary: 140 40% 10%;
+  --secondary-foreground: 120 100% 65%;
+  --muted: 140 40% 10%;
+  --muted-foreground: 120 50% 35%;
+  --accent: 120 100% 45%;
+  --accent-foreground: 142 60% 2%;
+  --destructive: 0 80% 45%;
+  --destructive-foreground: 120 100% 65%;
+  --border: 120 60% 14%;
+  --input: 120 60% 14%;
+  --ring: 120 100% 45%;
+  --radius: 2px;
+
+  --font-display: 'Share Tech Mono', monospace;
+  --font-mono: 'Share Tech Mono', monospace;
+  --font-body: 'Share Tech Mono', monospace;
+}
+
+/* Pip-Boy glow effect */
+.theme-pipboy body {
+  text-shadow: 0 0 4px hsl(120 100% 45% / 0.4);
+}
+.theme-pipboy .bg-card {
+  box-shadow: inset 0 0 30px hsl(120 100% 45% / 0.05), 0 0 15px hsl(120 100% 45% / 0.08);
+}
+
+/* ─── HELLO KITTY ─── */
+.theme-hellokitty {
+  --background: 340 60% 95%;
+  --foreground: 340 40% 20%;
+  --card: 340 60% 98%;
+  --card-foreground: 340 40% 20%;
+  --popover: 340 60% 98%;
+  --popover-foreground: 340 40% 20%;
+  --primary: 340 82% 60%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 340 50% 88%;
+  --secondary-foreground: 340 40% 20%;
+  --muted: 340 40% 88%;
+  --muted-foreground: 340 20% 50%;
+  --accent: 20 90% 60%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 70% 55%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 340 40% 82%;
+  --input: 340 40% 82%;
+  --ring: 340 82% 60%;
+  --radius: 1rem;
+
+  --font-display: 'Nunito', sans-serif;
+  --font-mono: 'Nunito', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+}
+
+/* Hello Kitty: softer shadows, round everything */
+.theme-hellokitty .rounded-lg {
+  border-radius: 1.25rem;
+}
+.theme-hellokitty .rounded-md {
+  border-radius: 1rem;
+}
+.theme-hellokitty .bg-card {
+  box-shadow: 0 4px 20px hsl(340 82% 60% / 0.1);
+}
+
+/* ─── TRANSFORMER ─── */
+.theme-transformer {
+  --background: 220 20% 6%;
+  --foreground: 220 10% 85%;
+  --card: 220 18% 10%;
+  --card-foreground: 220 10% 85%;
+  --popover: 220 18% 10%;
+  --popover-foreground: 220 10% 85%;
+  --primary: 10 90% 55%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 15% 16%;
+  --secondary-foreground: 220 10% 85%;
+  --muted: 220 15% 16%;
+  --muted-foreground: 220 10% 45%;
+  --accent: 200 90% 55%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 80% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 220 15% 20%;
+  --input: 220 15% 20%;
+  --ring: 10 90% 55%;
+  --radius: 4px;
+
+  --font-display: 'Orbitron', sans-serif;
+  --font-mono: 'Orbitron', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* Transformer: angular, metallic feel */
+.theme-transformer .bg-card {
+  box-shadow: inset 0 1px 0 hsl(220 15% 25%), 0 2px 10px hsl(0 0% 0% / 0.4);
+  border-left: 3px solid hsl(var(--primary));
+}
+.theme-transformer h1,
+.theme-transformer h2,
+.theme-transformer h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ─── VAPORWAVE ─── */
+.theme-vaporwave {
+  --background: 260 40% 6%;
+  --foreground: 300 40% 85%;
+  --card: 260 35% 10%;
+  --card-foreground: 300 40% 85%;
+  --popover: 260 35% 10%;
+  --popover-foreground: 300 40% 85%;
+  --primary: 320 80% 65%;
+  --primary-foreground: 260 40% 6%;
+  --secondary: 260 30% 16%;
+  --secondary-foreground: 300 40% 85%;
+  --muted: 260 30% 16%;
+  --muted-foreground: 260 20% 50%;
+  --accent: 180 70% 55%;
+  --accent-foreground: 260 40% 6%;
+  --destructive: 0 70% 55%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 280 30% 18%;
+  --input: 280 30% 18%;
+  --ring: 320 80% 65%;
+  --radius: 0.5rem;
+
+  --font-display: 'Megrim', cursive;
+  --font-mono: 'Share Tech Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* Vaporwave: gradient glow effects */
+.theme-vaporwave .bg-card {
+  box-shadow: 0 0 20px hsl(320 80% 65% / 0.08), 0 0 40px hsl(180 70% 55% / 0.05);
+}
+.theme-vaporwave h1,
+.theme-vaporwave h2 {
+  background: linear-gradient(135deg, hsl(320 80% 65%), hsl(180 70% 55%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── THEME TRANSITION ─── */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+html * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}

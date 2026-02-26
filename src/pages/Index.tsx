@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PromptInput } from "@/components/PromptInput";
 import { Leaderboard } from "@/components/Leaderboard";
+import { ThemeSelector } from "@/components/ThemeSelector";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -25,13 +26,16 @@ const Index = () => {
               AI models compete. You judge. Chaos ensues.
             </p>
           </div>
-          <a
-            href="/history"
-            className="text-xs text-muted-foreground hover:text-primary transition-colors hidden md:block"
-            style={{ fontFamily: "var(--font-mono)" }}
-          >
-            history →
-          </a>
+          <div className="flex items-center gap-3">
+            <ThemeSelector />
+            <a
+              href="/history"
+              className="text-xs text-muted-foreground hover:text-primary transition-colors hidden md:block"
+              style={{ fontFamily: "var(--font-mono)" }}
+            >
+              history →
+            </a>
+          </div>
         </div>
       </header>
 

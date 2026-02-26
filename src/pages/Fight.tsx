@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { VoteResult } from "@/components/VoteResult";
+import { ThemeSelector } from "@/components/ThemeSelector";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2, ArrowLeft } from "lucide-react";
 
@@ -182,7 +183,7 @@ const Fight = () => {
           >
             QuipSlop
           </h1>
-          <div className="w-16" /> {/* spacer for centering */}
+          <ThemeSelector />
         </div>
       </header>
 
@@ -217,7 +218,7 @@ const Fight = () => {
         {/* Response cards side by side */}
         {fightState !== "result" && (
           <div className="grid md:grid-cols-2 gap-4">
-            {(round ? round.responses : [{label: "A"}, {label: "B"}]).map((r, i) => (
+            {(round ? round.responses : [{ label: "A" }, { label: "B" }]).map((r, i) => (
               <div
                 key={r.label}
                 className={`
