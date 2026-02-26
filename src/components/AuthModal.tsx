@@ -18,6 +18,7 @@ export const AuthModal = ({ open, onOpenChange, defaultView = "login" }: AuthMod
   const [view, setView] = useState<AuthView>(defaultView);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [loading, setLoading] = useState(false);
   const { signIn, signUp, resetPassword } = useAuth();
@@ -26,6 +27,7 @@ export const AuthModal = ({ open, onOpenChange, defaultView = "login" }: AuthMod
   const reset = () => {
     setEmail("");
     setPassword("");
+    setConfirmPassword("");
     setDisplayName("");
   };
 
@@ -45,6 +47,10 @@ export const AuthModal = ({ open, onOpenChange, defaultView = "login" }: AuthMod
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (password !== confirmPassword) {
+      toast({ title: "Passwords don't match", description: "Please make sure both passwords are identical.", variant: "destructive" });
+      return;
+    }
     setLoading(true);
     const { error } = await signUp(email, password, displayName);
     setLoading(false);
@@ -124,6 +130,10 @@ export const AuthModal = ({ open, onOpenChange, defaultView = "login" }: AuthMod
             <div className="space-y-2">
               <Label htmlFor="signup-password">Password</Label>
               <Input id="signup-password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={6} />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="signup-confirm">Confirm password</Label>
+              <Input id="signup-confirm" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required minLength={6} />
             </div>
             <Button type="submit" className="w-full" disabled={loading}>
               {loading ? "Creating account…" : "Create account"}
