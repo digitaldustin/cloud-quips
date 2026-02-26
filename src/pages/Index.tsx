@@ -6,12 +6,12 @@ import { ThemeSelector } from "@/components/ThemeSelector";
 import { AuthModal } from "@/components/AuthModal";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
-import { User, LogOut } from "lucide-react";
+import { User, LogOut, Shield, Zap } from "lucide-react";
 
 const Index = () => {
   const navigate = useNavigate();
   const [authOpen, setAuthOpen] = useState(false);
-  const { user, signOut } = useAuth();
+  const { user, signOut, isAdmin, generations } = useAuth();
 
   const startRound = (prompt: string) => {
     navigate("/fight", { state: { prompt } });
@@ -43,6 +43,20 @@ const Index = () => {
             </a>
             {user ? (
               <div className="flex items-center gap-2">
+                <span className="text-xs text-primary flex items-center gap-1" style={{ fontFamily: "var(--font-mono)" }} title="Generations remaining">
+                  <Zap className="h-3 w-3" />
+                  {generations}
+                </span>
+                {isAdmin && (
+                  <a
+                    href="/admin"
+                    className="text-xs text-muted-foreground hover:text-primary transition-colors"
+                    style={{ fontFamily: "var(--font-mono)" }}
+                    title="Admin panel"
+                  >
+                    <Shield className="h-4 w-4" />
+                  </a>
+                )}
                 <span className="text-xs text-muted-foreground hidden md:block" style={{ fontFamily: "var(--font-mono)" }}>
                   {user.email?.split("@")[0]}
                 </span>
