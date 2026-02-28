@@ -4,6 +4,7 @@ import { PromptInput } from "@/components/PromptInput";
 import { Leaderboard } from "@/components/Leaderboard";
 import { ThemeSelector } from "@/components/ThemeSelector";
 import { AuthModal } from "@/components/AuthModal";
+import { BuyGenerationsModal } from "@/components/BuyGenerationsModal";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { User, LogOut, Shield, Zap } from "lucide-react";
@@ -11,6 +12,7 @@ import { User, LogOut, Shield, Zap } from "lucide-react";
 const Index = () => {
   const navigate = useNavigate();
   const [authOpen, setAuthOpen] = useState(false);
+  const [buyOpen, setBuyOpen] = useState(false);
   const { user, signOut, isAdmin, generations } = useAuth();
 
   const startRound = (prompt: string) => {
@@ -43,10 +45,15 @@ const Index = () => {
             </a>
             {user ? (
               <div className="flex items-center gap-2">
-                <span className="text-xs text-primary flex items-center gap-1" style={{ fontFamily: "var(--font-mono)" }} title="Generations remaining">
+                <button
+                  className="text-xs text-primary flex items-center gap-1 hover:opacity-80 transition-opacity"
+                  style={{ fontFamily: "var(--font-mono)" }}
+                  title="Generations remaining — click to buy more"
+                  onClick={() => setBuyOpen(true)}
+                >
                   <Zap className="h-3 w-3" />
                   {generations}
-                </span>
+                </button>
                 {isAdmin && (
                   <a
                     href="/admin"
@@ -74,6 +81,7 @@ const Index = () => {
         </div>
       </header>
       <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
+      <BuyGenerationsModal open={buyOpen} onOpenChange={setBuyOpen} />
 
       <main className="container max-w-5xl mx-auto px-4 py-8 space-y-8">
         <PromptInput onSubmit={startRound} loading={false} />
